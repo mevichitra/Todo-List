@@ -1,6 +1,6 @@
 # TodoList App
 
-This is a simple TodoList app that helps you manage your tasks and stay organized. It provides a user-friendly interface to add, update, and delete tasks, as well as mark them as completed.
+This is a simple TodoList app that helps you create daily tasks and get more done. It provides a beautiful ui to add and mark them as completed.
 
 ## Features
 - Add tasks: Enter a description for a task and add it to the list.
@@ -24,10 +24,7 @@ This is a simple TodoList app that helps you manage your tasks and stay organize
 
 1. On the homepage, you will see the list of existing tasks (if any).
 2. To add a new task, click on the "Add Task" button and enter the task description.
-3. To update a task, click on the task you want to edit and modify the description in the input field.
-4. To delete a task, click on the task you want to remove and click the delete button.
 5. To mark a task as completed, click on the checkbox next to the task.
-6. To filter tasks, use the filter options available (e.g., "All", "Completed", "Pending").
 
 ## Contributions
 
