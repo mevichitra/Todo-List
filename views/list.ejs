@@ -1,0 +1,25 @@
+<%- include('header'); -%>
+
+    <body>
+        <div id="heading">
+            <h1>
+                <%=day%>
+            </h1>
+        </div>
+
+        <div class="container">
+            <%for (let i=0; i < items.length; i++) {%>
+                <div class="item"><input type="checkbox">
+                    <p>
+                        <%=items[i]%>
+                    </p>
+                </div>
+                <% }%>
+
+                    <form class="item" action="/" method="post">
+                        <input type="text" name="newItem" placeholder="Add Task Here">
+                        <button type="submit" name="submit">+</button>
+                    </form>
+        </div>
+
+<%- include('footer'); -%>

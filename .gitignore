@@ -1,0 +1,8 @@
+# Ignore EJS template cache
+*.ejs.cache
+
+# Ignore generated HTML files
+*.html
+
+# Ignore node_modules directory
+node_modules/
