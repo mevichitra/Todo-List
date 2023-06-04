@@ -22,13 +22,14 @@ const items = ["Your tasks are added here"];
 
 /* 💾 MONGOOSE STARTS  >> */
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/todolistDB");
+mongoose.connect(
+  "mongodb+srv://vichitrattri:vsrsLdUvBEt3qPX5@todolist-cluster.jm6x0je.mongodb.net/todolistDB"
+);
 
 // Create Mongoose Schema
 const itemsSchema = {
   name: String,
 };
-
 
 // create mongoose model
 const Item = mongoose.model("Item", itemsSchema);
@@ -53,31 +54,30 @@ const defaultItems = [item1, item2, item3];
 /* 🔴 HOMEPAGE >> */
 
 app.get("/", async function (req, res) {
-    try {
-      // Get Current Day
-      const day = date.getDate();
-  
-      // Find all items in the collection
-      const foundItems = await Item.find({});
-  
-      // Check if no items found
-      if (foundItems.length === 0) {
-        // Insert defaultItems into the collection
-        await Item.insertMany(defaultItems);
-        console.log("Default items inserted successfully.");
-        // Redirect to the home page to display the default items
-        res.redirect("/");
-      } else {
-        // Render list.ejs and pass in day and foundItems
-        res.render("list", { day: day, items: foundItems });
-      }
-    } catch (err) {
-      console.log(err);
+  try {
+    // Get Current Day
+    const day = date.getDate();
+
+    // Find all items in the collection
+    const foundItems = await Item.find({});
+
+    // Check if no items found
+    if (foundItems.length === 0) {
+      // Insert defaultItems into the collection
+      await Item.insertMany(defaultItems);
+      console.log("Default items inserted successfully.");
+      // Redirect to the home page to display the default items
+      res.redirect("/");
+    } else {
+      // Render list.ejs and pass in day and foundItems
+      res.render("list", { day: day, items: foundItems });
     }
-  });
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 /* << HOMEPAGE 🔴 */
-
 
 /* 🔵 POST >> */
 
@@ -96,7 +96,6 @@ app.post("/", function (req, res) {
 /* << POST 🔵 */
 
 app.post("/delete", function (req, res) {
-  
   const checkedItemId = req.body.checkbox;
 
   // Remove checked item from the collection
@@ -105,10 +104,10 @@ app.post("/delete", function (req, res) {
     try {
       const deletedItem = await Item.findOneAndDelete({ _id: checkedItemId });
       if (deletedItem) {
-        console.log('Item successfully deleted:', deletedItem);
+        console.log("Item successfully deleted:", deletedItem);
         // Item was found and deleted
       } else {
-        console.log('Item not found');
+        console.log("Item not found");
         // Item with the given ID was not found
       }
     } catch (err) {
