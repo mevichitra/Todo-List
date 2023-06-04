@@ -31,20 +31,16 @@ h1 {
               inset -35px -35px 70px #fff;
 }
 
-.item {
-  min-height: 70px;
+div.item {
+  min-height: 68px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #444;
 }
 
-.item:last-child {
-  border-bottom: 0;
-}
-
 input:checked+p {
   text-decoration: line-through;
-  text-decoration-color: #ffafaf;
+  text-decoration-color: #e50000;
 }
 
 input[type="checkbox"] {
@@ -60,9 +56,12 @@ p {
   color: #fff;
 }
 
-form {
+form.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin-left: 20px;
 }
 
 button {

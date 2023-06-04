@@ -52,15 +52,6 @@ const defaultItems = [item1, item2, item3];
 
 /* 🔴 HOMEPAGE >> */
 
-//Get homepage to display list of tasks 🌐
-// app.get("/", function (req, res) {
-//   // Get Current Day
-//   const day = date.getDate();
-
-//   // Render list.ejs and pass in day and items 🌐
-//   res.render("list", { day: day, items: items });
-// });
-
 app.get("/", async function (req, res) {
     try {
       // Get Current Day
@@ -88,10 +79,44 @@ app.get("/", async function (req, res) {
 /* << HOMEPAGE 🔴 */
 
 
+/* 🔵 POST >> */
 
 app.post("/", function (req, res) {
-  const item = req.body.newItem;
-  items.push(item);
+  const itemName = req.body.newItem;
+
+  const item = new Item({
+    name: itemName,
+  });
+
+  item.save();
+
+  res.redirect("/");
+});
+
+/* << POST 🔵 */
+
+app.post("/delete", function (req, res) {
+  
+  const checkedItemId = req.body.checkbox;
+
+  // Remove checked item from the collection
+  // Item.findOneAndDelete({ _id: checkedItemId });
+  (async () => {
+    try {
+      const deletedItem = await Item.findOneAndDelete({ _id: checkedItemId });
+      if (deletedItem) {
+        console.log('Item successfully deleted:', deletedItem);
+        // Item was found and deleted
+      } else {
+        console.log('Item not found');
+        // Item with the given ID was not found
+      }
+    } catch (err) {
+      console.error(err);
+      // Handle the error
+    }
+  })();
+
   res.redirect("/");
 });
 
