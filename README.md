@@ -3,26 +3,21 @@
 This is a simple TodoList app that helps you manage your tasks and stay organized. It provides a user-friendly interface to add, update, and delete tasks, as well as mark them as completed.
 
 ## Features
-
 - Add tasks: Enter a description for a task and add it to the list.
-- Update tasks: Edit the description of an existing task.
-- Delete tasks: Remove tasks from the list.
 - Mark tasks as completed: Track the progress of your tasks by marking them as completed.
-- Filter tasks: View all tasks, only the completed ones, or only the pending ones.
 
 ## Technologies Used
-
 - Front-end: HTML, CSS, JavaScript
 - Back-end: Node.js, Express.js
 - Database: MongoDB
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-repo.git`
-2. Navigate to the project directory: `cd your-repo`
+1. Clone the repository: `git clone https://github.com/mevichitra/Todo-List`
+2. Navigate to the project directory: `cd Todo-List`
 3. Install the dependencies: `npm install`
 4. Set up the database connection in the `config.js` file.
-5. Start the server: `node server.js`
+5. Start the server: `node app.js`
 6. Open your web browser and visit: `http://localhost:3000`
 
 ## Usage
